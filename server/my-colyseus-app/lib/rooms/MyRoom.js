@@ -37,17 +37,22 @@ class MyRoom extends colyseus_1.Room {
             this.state.fader1 = message.value;
         });
         this.presence.subscribe('/fader2', (message) => {
-            this.state.fader1 = message.value;
+            this.state.fader2 = message.value;
         });
         this.presence.subscribe('/fader3', (message) => {
-            this.state.fader1 = message.value;
+            this.state.fader3 = message.value;
         });
         this.presence.subscribe('/fader4', (message) => {
-            this.state.fader1 = message.value;
+            this.state.fader4 = message.value;
         });
-        this.clock.setInterval(() => {
-            console.log(this.state.fader1, this.state.fader2, this.state.fader3, this.state.fader4);
-        }, 1000);
+        // this.clock.setInterval(() => {
+        //   console.log(
+        //     this.state.fader1,
+        //     this.state.fader2,
+        //     this.state.fader3,
+        //     this.state.fader4
+        //   )
+        // }, 1000)
     }
     onJoin(client, options) {
         if (options.director) {
