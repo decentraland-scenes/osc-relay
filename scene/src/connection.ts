@@ -40,7 +40,7 @@ export async function connect(roomName: string, options: any = {}) {
   // const ENDPOINT = "wss://hept-j.colyseus.dev";
   const ENDPOINT = isPreview
     ? 'ws://127.0.0.1:2567' // local environment
-    : 'wss://fh4ogh.colyseus.dev' // production environment
+    : 'wss://l9tio3.colyseus.dev' // production environment
 
   if (isPreview) {
     addConnectionDebugger(ENDPOINT)

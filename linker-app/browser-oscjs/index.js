@@ -67,7 +67,10 @@ wss.on("connection", function (socket) {
 
 //import * as Colyseus from "/node_modules/colyseus.js/dist/colyseus.js"; // not necessary if included via <script> tag.
 
-var client = new Colyseus.Client('ws://localhost:2567');
+const LOCAL = false
+
+
+var client = new Colyseus.Client(LOCAL?'ws://localhost:2567': `wss://l9tio3.colyseus.dev`);
 
 var options = {director:true, password: "papafrita"}
 
