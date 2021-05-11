@@ -67,7 +67,7 @@ wss.on("connection", function (socket) {
 
 //import * as Colyseus from "/node_modules/colyseus.js/dist/colyseus.js"; // not necessary if included via <script> tag.
 
-const LOCAL = false
+const LOCAL = true
 
 
 var client = new Colyseus.Client(LOCAL?'ws://localhost:2567': `wss://l9tio3.colyseus.dev`);
