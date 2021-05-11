@@ -56,9 +56,9 @@ wss.on("connection", function (socket) {
         socket: socket
     });
 
-    var relay = new osc.Relay(udpPort, socketPort, {
-        raw: true
-    });
+    // var relay = new osc.Relay(udpPort, socketPort, {
+    //     raw: true
+    // });
 });
 
 
@@ -73,34 +73,12 @@ var options = {director:true, password: "papafrita"}
 
 const room = client.joinOrCreate("my_room", options).then(room => {
     console.log(room.sessionId, "joined", room.name);
-	// room.state.listen('fader1', (value) => {
-	// 	console.log("Fader1 changed ", value)
-	// })
-	// room.state.listen('fader2', (value) => {
-	// 	console.log("Fader2 changed ", value)
-	// })
-	// room.state.listen('fader3', (value) => {
-	// 	console.log("Fader3 changed ", value)
-	// })
-	// room.state.listen('fader4', (value) => {
-	// 	console.log("Fader4 changed ", value)
-	// })
 
 	udpPort.on("message", function (oscMessage) {
 		console.log(oscMessage);
 
 		room.send("change", {address:oscMessage.address, value:oscMessage.args[0]})
 
-		// if(oscMessage.address == '/accelerometer/x'){
-		// 	//room.state.fader1.set(oscMessage.args[0])
-		// 	room.send("fader1", {value:oscMessage.args[0]})
-		// } else if(oscMessage.address == '/accelerometer/y'){
-		// 	//room.state.fader2 = oscMessage.args[0]
-		// 	room.send("fader2", {value:oscMessage.args[0]})
-		// } else if(oscMessage.address == '/accelerometer/z'){
-		// 	//room.state.fader3 = oscMessage.args[0]
-		// 	room.send("fader3", {value:oscMessage.args[0]})
-		// }
 	});
 
 }).catch(e => {
