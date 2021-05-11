@@ -15,7 +15,9 @@ exports.default = arena_1.default({
         /**
          * Define your room handlers:
          */
-        gameServer.define('my_room', MyRoom_1.MyRoom);
+        gameServer
+            .define('my_room', MyRoom_1.MyRoom)
+            .filterBy(['realm']);
     },
     initializeExpress: (app) => {
         /**
